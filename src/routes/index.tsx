@@ -15,23 +15,51 @@ import { toast } from "sonner";
 
 import { submitContact } from "@/lib/contact.functions";
 
-const TITLE = "HGD Webflow | Website Design & Development";
+const TITLE = "Website Design & Development | HGD Webflow";
 const DESCRIPTION =
-  "HGD Webflow builds fast, clean, conversion-focused websites for businesses. Custom design, development, SEO and ongoing care.";
+  "HGD Webflow designs and builds fast, mobile-first, SEO-ready websites for small businesses. Free landing page first — only pay if you love it.";
+
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "HGD Webflow",
+  description: DESCRIPTION,
+  email: "hgd.webflow@gmail.com",
+  areaServed: "United Kingdom",
+  serviceType: [
+    "Website design",
+    "Website development",
+    "SEO",
+    "Website maintenance",
+  ],
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
+      {
+        name: "keywords",
+        content:
+          "website design, website development, small business website, web designer, SEO, HGD Webflow",
+      },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "HGD Webflow" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+      { name: "robots", content: "index, follow" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(JSON_LD) }],
   }),
   component: Index,
 });
+
 
 const services = [
   {
