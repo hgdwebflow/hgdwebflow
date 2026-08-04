@@ -199,7 +199,7 @@ function Index() {
           </div>
 
           <div className="mt-14 grid gap-4 border-t border-border pt-10 sm:grid-cols-3">
-            {["Built for you", "Fast and SEO-ready", "Fast creation and SEO optimised"].map((item) => (
+            {["Built for you", "Quick response time", "Fast creation and SEO optimised"].map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
                 <CheckCircle2 className="h-4 w-4 text-foreground" />
                 {item}
