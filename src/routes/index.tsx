@@ -14,6 +14,7 @@ import {
 import { toast } from "sonner";
 
 import { submitContact } from "@/lib/contact.functions";
+import hgdLogo from "@/assets/hgd-logo.png.asset.json";
 
 const TITLE = "Website Design & Development | HGD Webflow";
 const DESCRIPTION =
@@ -138,8 +139,17 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Link to="/" className="font-heading text-lg font-bold uppercase tracking-[0.2em]">
-            HGD<span className="text-muted-foreground"> Webflow</span>
+          <Link to="/" className="flex items-center gap-3">
+            <img
+              src={hgdLogo.url}
+              alt="HGD Webflow logo"
+              width={40}
+              height={40}
+              className="h-10 w-10 rounded-lg object-cover"
+            />
+            <span className="font-heading text-lg font-bold uppercase tracking-[0.2em]">
+              HGD<span className="text-muted-foreground"> Webflow</span>
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
@@ -432,9 +442,19 @@ function Index() {
 
       <footer className="border-t border-border px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
-          <span className="font-heading text-base font-bold uppercase tracking-[0.2em]">
-            HGD Webflow
-          </span>
+          <div className="flex items-center gap-3">
+            <img
+              src={hgdLogo.url}
+              alt="HGD Webflow logo"
+              width={36}
+              height={36}
+              loading="lazy"
+              className="h-9 w-9 rounded-lg object-cover"
+            />
+            <span className="font-heading text-base font-bold uppercase tracking-[0.2em]">
+              HGD Webflow
+            </span>
+          </div>
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} HGD Webflow. Website design &amp; development.
           </p>
