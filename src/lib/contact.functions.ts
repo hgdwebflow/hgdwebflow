@@ -6,7 +6,6 @@ const contactSchema = z.object({
   email: z.string().trim().email("Enter a valid email address").max(255),
   phone: z.string().trim().max(40).optional().or(z.literal("")),
   company: z.string().trim().max(120).optional().or(z.literal("")),
-  projectType: z.string().trim().max(80).optional().or(z.literal("")),
   budget: z.string().trim().max(80).optional().or(z.literal("")),
   message: z.string().trim().min(10, "Tell us a bit more").max(2000),
 });
@@ -23,7 +22,6 @@ export const submitContact = createServerFn({ method: "POST" })
       email: data.email,
       phone: data.phone || null,
       company: data.company || null,
-      project_type: data.projectType || null,
       budget: data.budget || null,
       message: data.message,
     });

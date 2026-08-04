@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   Code2,
   Gauge,
-  Layers,
   Loader2,
   Search,
   Smartphone,
@@ -16,23 +15,51 @@ import { toast } from "sonner";
 
 import { submitContact } from "@/lib/contact.functions";
 
-const TITLE = "HGD Webflow | Website Design & Development";
+const TITLE = "Website Design & Development | HGD Webflow";
 const DESCRIPTION =
-  "HGD Webflow builds fast, clean, conversion-focused websites for businesses. Custom design, development, SEO and ongoing care.";
+  "HGD Webflow designs and builds fast, mobile-first, SEO-ready websites for small businesses. Free landing page first — only pay if you love it.";
+
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "HGD Webflow",
+  description: DESCRIPTION,
+  email: "hgd.webflow@gmail.com",
+  areaServed: "United Kingdom",
+  serviceType: [
+    "Website design",
+    "Website development",
+    "SEO",
+    "Website maintenance",
+  ],
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
+      {
+        name: "keywords",
+        content:
+          "website design, website development, small business website, web designer, SEO, HGD Webflow",
+      },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "HGD Webflow" },
+      { property: "og:url", content: "/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+      { name: "robots", content: "index, follow" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(JSON_LD) }],
   }),
   component: Index,
 });
+
 
 const services = [
   {
@@ -60,12 +87,6 @@ const services = [
       "Clean structure, proper metadata and technical SEO built in from day one so you get found.",
   },
   {
-    icon: Layers,
-    title: "Landing Pages & E-commerce",
-    description:
-      "From single high-impact landing pages to full online stores, built for the way you sell.",
-  },
-  {
     icon: Wrench,
     title: "Care & Maintenance",
     description:
@@ -73,23 +94,11 @@ const services = [
   },
 ];
 
-const projectTypes = [
-  "New website",
-  "Website redesign",
-  "Landing page",
-  "E-commerce store",
-  "Maintenance & support",
-  "Something else",
-];
-
-const budgets = ["Under £1,000", "£1,000 – £3,000", "£3,000 – £7,500", "£7,500+", "Not sure yet"];
-
 const emptyForm = {
   name: "",
   email: "",
   phone: "",
   company: "",
-  projectType: "",
   budget: "",
   message: "",
 };
@@ -367,49 +376,25 @@ function Index() {
                       placeholder="Optional"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="projectType" className="mb-2 block text-sm font-medium">
-                      Project type
-                    </label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      value={form.projectType}
-                      onChange={(e) => update("projectType")(e.target.value)}
-                      className={fieldClass}
-                    >
-                      <option value="">Select…</option>
-                      {projectTypes.map((type) => (
-                        <option key={type} value={type}>
-                          {type}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
+                  <div className="sm:col-span-2">
                     <label htmlFor="budget" className="mb-2 block text-sm font-medium">
                       Budget
                     </label>
-                    <select
+                    <input
                       id="budget"
                       name="budget"
+                      maxLength={80}
                       value={form.budget}
                       onChange={(e) => update("budget")(e.target.value)}
                       className={fieldClass}
-                    >
-                      <option value="">Select…</option>
-                      {budgets.map((b) => (
-                        <option key={b} value={b}>
-                          {b}
-                        </option>
-                      ))}
-                    </select>
+                      placeholder="Optional — e.g. around £2,000"
+                    />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="mb-2 block text-sm font-medium">
-                    Project details *
+                    Project details * — what is your business and what do you offer?
                   </label>
                   <textarea
                     id="message"
@@ -420,7 +405,7 @@ function Index() {
                     value={form.message}
                     onChange={(e) => update("message")(e.target.value)}
                     className={fieldClass}
-                    placeholder="What do you need, and when do you need it by?"
+                    placeholder="Tell us what your business is and what you offer, what you need building, and when you need it by."
                   />
                 </div>
 
