@@ -397,7 +397,7 @@ function Index() {
                       value={form.budget}
                       onChange={(e) => update("budget")(e.target.value)}
                       className={fieldClass}
-                      placeholder="Optional — e.g. around £2,000"
+                      placeholder="Optional — e.g. around £400"
                     />
                   </div>
                 </div>
