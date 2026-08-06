@@ -94,6 +94,12 @@ const services = [
     description:
       "Updates, fixes, backups and improvements so your site keeps working long after launch.",
   },
+  {
+    icon: Banknote,
+    title: "Budget-Friendly Pricing",
+    description:
+      "Transparent, fair prices that beat typical agency quotes — a professional website without inflated costs.",
+  },
 ];
 
 const emptyForm = {
