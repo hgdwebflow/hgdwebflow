@@ -14,7 +14,7 @@ import {
 import { toast } from "sonner";
 
 import { submitContact } from "@/lib/contact.functions";
-import hgdLogo from "@/assets/hgd-logo.png.asset.json";
+
 
 const TITLE = "Website Design & Development | HGD Webflow";
 const DESCRIPTION =
