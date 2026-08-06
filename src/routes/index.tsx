@@ -3,6 +3,7 @@ import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import {
   ArrowRight,
+  Banknote,
   CheckCircle2,
   Code2,
   Gauge,
@@ -92,6 +93,12 @@ const services = [
     title: "Care & Maintenance",
     description:
       "Updates, fixes, backups and improvements so your site keeps working long after launch.",
+  },
+  {
+    icon: Banknote,
+    title: "Budget-Friendly Pricing",
+    description:
+      "Transparent, fair prices that beat typical agency quotes — a professional website without inflated costs.",
   },
 ];
 
