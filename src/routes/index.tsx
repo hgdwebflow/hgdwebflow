@@ -141,7 +141,7 @@ function Index() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center gap-3">
             <img
-              src={hgdLogo.url}
+              src="/hgd-logo.png"
               alt="HGD Webflow logo"
               width={40}
               height={40}
@@ -444,7 +444,7 @@ function Index() {
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
           <div className="flex items-center gap-3">
             <img
-              src={hgdLogo.url}
+              src="/hgd-logo.png"
               alt="HGD Webflow logo"
               width={36}
               height={36}
